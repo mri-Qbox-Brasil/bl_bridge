@@ -33,6 +33,7 @@ Config = {
             esx = 'es_extended',
             origen = 'origen_inventory',
             codem = 'codem-inventory',
+            tgiann = 'tgiann-inventory',
         },
         core = {
             nd = 'ND_Core',

@@ -15,6 +15,8 @@ function inventory.playerItems()
         playerData = exports.ox_inventory:GetPlayerItems()
     elseif isOrigen then
         playerData = exports.origen_inventory:GetInventory()
+    elseif invFramework == 'tgiann-inventory' then
+        playerData = exports['tgiann-inventory']:GetPlayerItems()
     else
         local core = Framework.core
         if not core then
@@ -40,7 +42,8 @@ function inventory.openInventory(invType, invId)
         exports.ox_inventory:openInventory(invType, invType == 'stash' and invId or {type = invId})
     elseif isOrigen then
         exports.origen_inventory:openInventory(invType, invId)
-
+    elseif invFramework == 'tgiann-inventory' then
+        exports['tgiann-inventory']:openInventory(invType, invId)
     elseif invFramework == 'qb-inventory' then
         local inventoryData = Utils.await('bl_bridge:validInventory', 10, invType, invId)
         if not inventoryData then return end
